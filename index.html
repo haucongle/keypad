@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Keypad</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body onload="getNumber()">
+    <div class="background"></div>
+    <input type="text" class="NumberShow" id="NumberShow"></input>
+    <p style="line-height: 1.2;"></p>
+    <audio id="keyAudio"></audio>
+    <table class="makecenter">
+      <tbody>
+        <tr>
+          <td>
+            <table class="keypad">
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="num" onclick="inputNumber('1')">
+                      <div class="digit">1</div>
+                      <div class="text"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="num" onclick="inputNumber('2')">
+                      <div class="digit">2</div>
+                      <div class="text">ABC</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="num" onclick="inputNumber('3')">
+                      <div class="digit">3</div>
+                      <div class="text">DEF</div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="num" onclick="inputNumber('4')">
+                      <div class="digit">4</div>
+                      <div class="text">GHI</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="num" onclick="inputNumber('5')">
+                      <div class="digit">5</div>
+                      <div class="text">JKL</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="num" onclick="inputNumber('6')">
+                      <div class="digit">6</div>
+                      <div class="text">MNO</div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="num" onclick="inputNumber('7')">
+                      <div class="digit">7</div>
+                      <div class="text">PQRS</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="num" onclick="inputNumber('8')">
+                      <div class="digit">8</div>
+                      <div class="text">TUV</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="num" onclick="inputNumber('9')">
+                      <div class="digit">9</div>
+                      <div class="text">WXYZ</div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="num" onclick="inputNumber('*')">
+                      <img class="button" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTQ0MCAxODcyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxNDQwIDE4NzIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiMwMDAwMDAiIGQ9Ik0xMDU2LjU3NiwxMTcwLjI0OWMtNi42MjcsMC0xMy4zNTQtMS42ODctMTkuNTA4LTUuMjQ1bC02NzQuNzItMzg5LjU0OCAgYy0xOC42OTgtMTAuNzk2LTI1LjEwNC0zNC43MDItMTQuMzA4LTUzLjRjMTAuNzg4LTE4LjY5NSwzNC42OTgtMjUuMTA0LDUzLjQtMTQuMzA4bDY3NC43MiwzODkuNTQ4ICBjMTguNjk4LDEwLjc5NiwyNS4xMDQsMzQuNzAyLDE0LjMwOCw1My40QzEwODMuMjMsMTE2My4yMzIsMTA3MC4wOSwxMTcwLjI0OSwxMDU2LjU3NiwxMTcwLjI0OXoiPjwvcGF0aD48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMTA1Ni41NzYsMTE3MC4yNDljLTYuNjI3LDAtMTMuMzU0LTEuNjg3LTE5LjUwOC01LjI0NWwtNjc0LjcyLTM4OS41NDggIGMtMTguNjk4LTEwLjc5Ni0yNS4xMDQtMzQuNzAyLTE0LjMwOC01My40YzEwLjc4OC0xOC42OTUsMzQuNjk4LTI1LjEwNCw1My40LTE0LjMwOGw2NzQuNzIsMzg5LjU0OCAgYzE4LjY5OCwxMC43OTYsMjUuMTA0LDM0LjcwMiwxNC4zMDgsNTMuNEMxMDgzLjIzLDExNjMuMjMyLDEwNzAuMDksMTE3MC4yNDksMTA1Ni41NzYsMTE3MC4yNDl6Ij48L3BhdGg+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTM4MS45MzcsMTE3MC4yNDljLTEzLjUxNCwwLTI2LjY1LTcuMDA5LTMzLjg5Mi0xOS41NTRjLTEwLjc5Ni0xOC42OTgtNC4zOS00Mi42MDQsMTQuMzA4LTUzLjQgIGw2NzQuNzE2LTM4OS41NDhjMTguNjkxLTEwLjgwNCw0Mi42MTItNC4zODMsNTMuNCwxNC4zMDhjMTAuNzk2LDE4LjY5OCw0LjM5LDQyLjYwNC0xNC4zMDgsNTMuNGwtNjc0LjcxNiwzODkuNTQ4ICBDMzk1LjI5MSwxMTY4LjU2MiwzODguNTY4LDExNzAuMjQ5LDM4MS45MzcsMTE3MC4yNDl6Ij48L3BhdGg+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTcxOS4yNTcsMTM2NS4wMTRjLTIxLjU4OCwwLTM5LjA5Mi0xNy41LTM5LjA5Mi0zOS4wOTJsLTAuMDA0LTc3OS4wOTIgIGMwLTIxLjU4OCwxNy41MDQtMzkuMDkyLDM5LjA5Mi0zOS4wOTJzMzkuMDg4LDE3LjUwNCwzOS4wODgsMzkuMDkybDAuMDA4LDc3OS4wOTIgIEM3NTguMzQ4LDEzNDcuNTE0LDc0MC44NDksMTM2NS4wMTQsNzE5LjI1NywxMzY1LjAxNHoiPjwvcGF0aD48L3N2Zz4="></img>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="num" onclick="inputNumber('0')">
+                      <div class="digit">0</div>
+                      <div class="text">+</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="num" onclick="inputNumber('#')">
+                      <img class="button" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTAwIDEwMDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGQ9Ik02Ny42LDU2LjNoLTdWNDMuN2g3YzEuMiwwLDIuMS0wLjksMi4xLTIuMXMtMC45LTIuMS0yLjEtMi4xaC03VjMyYzAtMS4yLTAuOS0yLjEtMi4xLTIuMXMtMi4xLDEtMi4xLDIuMXY3LjRINDMuN1YzMiAgYzAtMS4yLTAuOS0yLjEtMi4xLTIuMWMtMS4yLDAtMi4xLDEtMi4xLDIuMXY3LjRoLTdjLTEuMiwwLTIuMSwwLjktMi4xLDIuMXMwLjksMi4xLDIuMSwyLjFoN3YxMi43aC03Yy0xLjIsMC0yLjEsMC45LTIuMSwyLjEgIHMwLjksMi4xLDIuMSwyLjFoN1Y2OGMwLDEuMiwwLjksMi4xLDIuMSwyLjFjMS4yLDAsMi4xLTAuOSwyLjEtMi4xdi03LjRoMTIuN1Y2OGMwLDEuMiwwLjksMi4xLDIuMSwyLjFzMi4xLTAuOSwyLjEtMi4xdi03LjRoNyAgYzEuMiwwLDIuMS0wLjksMi4xLTIuMVM2OC43LDU2LjMsNjcuNiw1Ni4zeiBNNDMuNyw1Ni4zVjQzLjdoMTIuN3YxMi43SDQzLjdWNTYuM3oiPjwvcGF0aD48L3N2Zz4="></img>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="ActionButton">
+              <tr>
+                <td></td>
+                <td class="callButton">
+                  <a id="callButton" href="javascript:void(0);" onclick="btnCall()"><img class="button" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTAwIDEwMDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwYXRoIGQ9Ik04MS43Myw3NS4yNGMyLjg4LTMuMDEsMi45LTYuNjUsMC4wMy05LjcyYy0zLjE3LTMuNC02LjQ2LTYuNjYtOS43OS05LjY5Yy0zLTIuNzMtNi41MS0yLjYtOS42NSwwLjM0ICAgYy0xLjk5LDEuODctMy41NiwzLjQyLTQuOTMsNC44OWMtMC4yNSwwLjI3LTAuMzksMC4zNS0wLjQsMC4zN2MtMC4wNC0wLjAxLTAuMTQtMC4wNC0wLjMxLTAuMTRjLTguOS01LjI1LTE1LjM1LTExLjczLTE5LjcxLTE5LjgxICAgYy0wLjA4LTAuMTUtMC4xMi0wLjI0LTAuMTMtMC4zYzAuMDQtMC4wNSwwLjExLTAuMTQsMC4yNS0wLjI4YzIuMDMtMS45MiwzLjY0LTMuNTUsNS4wNy01LjE0YzIuNzMtMy4wMywyLjc4LTYuOTQsMC4xNC05LjcyICAgYy0zLjIyLTMuNC02LjI5LTYuNDYtOS4zNi05LjM2Yy0zLjA3LTIuOS02Ljg4LTIuOTgtOS45My0wLjE5Yy0wLjQ0LDAuNDEtMC44OSwwLjgxLTEuMzQsMS4yMWMtMi45OCwyLjY2LTYuMDUsNS40MS03Ljc2LDkuNTEgICBsLTAuMTEsMC4zNmMtMC41NywyLjczLTAuNTcsNC40NiwwLDcuMTVsMC4wMywwLjExYzIuNDYsOS4xMiw2Ljc3LDE3LjQ3LDEyLjgxLDI0LjgzYzkuOTQsMTIuMTEsMjEuMTQsMTkuOTIsMzQuMjIsMjMuODggICBjMC42OSwwLjIxLDEuMzgsMC40LDIuMDcsMC42bDAuOTQsMC4yNmwwLjE5LDAuMDRjMS40NywwLjI3LDIuNTYsMC40NCwzLjYyLDAuNDRjMC45NywwLDEuOTItMC4xNCwzLjEyLTAuNDhsMC4yMi0wLjA4ICAgYzMuODctMS41OSw2LjQ3LTQuNDUsOC45OS03LjIyQzgwLjU4LDc2LjQ3LDgxLjE1LDc1Ljg1LDgxLjczLDc1LjI0eiBNNzguODQsNzIuNDdjLTAuNjEsMC42My0xLjIsMS4yOS0xLjc5LDEuOTQgICBjLTIuMjksMi41Mi00LjQ1LDQuOTEtNy40NCw2LjE3Yy0xLjUsMC40MS0yLjIzLDAuNC00LjczLTAuMDZsLTAuODYtMC4yNGMtMC42Ni0wLjE5LTEuMzMtMC4zNy0xLjk5LTAuNTcgICBjLTEyLjMxLTMuNzMtMjIuODctMTEuMTItMzIuMjktMjIuNTljLTUuNjctNi45LTkuNzEtMTQuNzMtMTIuMDMtMjMuMjhjLTAuNDMtMi4wNC0wLjQ0LTMuMjItMC4wMy01LjI2ICAgYzEuMzctMy4xNywzLjk0LTUuNDYsNi42NS03Ljg5YzAuNDYtMC40MSwwLjkyLTAuODMsMS4zOC0xLjI0YzEuNDgtMS4zNSwyLjk1LTEuMzEsNC40OCwwLjE0YzMuMDIsMi44NSw2LjAzLDUuODcsOS4yMSw5LjIxICAgYzEuNjMsMS43MSwwLjU2LDMuNDItMC4yMiw0LjI5Yy0xLjM1LDEuNS0yLjg5LDMuMDYtNC44NCw0LjljLTIuMDgsMS45Ni0xLjYzLDQuMDEtMC44OSw1LjM4YzQuNzIsOC43NCwxMS42NSwxNS43MywyMS4yLDIxLjM2ICAgYzEuNCwwLjgzLDMuNTIsMS4zMyw1LjY1LTAuOTVjMS4zMS0xLjQsMi44MS0yLjg5LDQuNzQtNC43YzEuODYtMS43NCwzLjAzLTEuMzgsNC4yMi0wLjNjMy4yNSwyLjk2LDYuNDcsNi4xNCw5LjU2LDkuNDYgICBDODAuMjYsNjkuNzcsODAuMjYsNzAuOTksNzguODQsNzIuNDd6Ij48L3BhdGg+PC9nPjwvc3ZnPg=="></img></div>
+                </td>
+                <td>
+                  <a href="javascript:void(0);" onclick="btnDelete()"><img class="button" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0OTYuMzg1IDQ5Ni4zODUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ5Ni4zODUgNDk2LjM4NTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxMjhweCIgaGVpZ2h0PSIxMjhweCI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTE0OS40MTMsOTguNzc0TDAsMjQ4LjE5N2wxNDkuNDEzLDE0OS40MTNoMzQ2Ljk3MVY5OC43NzRIMTQ5LjQxM3ogTTQ3Ni42OTIsMzc3LjkxOEgxNTcuNTY3TDI3Ljg0NiwyNDguMTk3ICAgIGwxMjkuNzIxLTEyOS43MzFoMzE5LjEyNVYzNzcuOTE4eiIgZmlsbD0iIzAwMDAwMCIvPgoJPC9nPgo8L2c+CjxnPgoJPGc+CgkJPHBvbHlnb24gcG9pbnRzPSIzNzYuNTk2LDE3OC44NjEgMzYyLjY3MywxNjQuOTM3IDI5My4zNDQsMjM0LjI2OSAyMjQuMDE0LDE2NC45MzcgMjEwLjA5MSwxNzguODYxIDI3OS40MjEsMjQ4LjE5MiAgICAgMjEwLjA5MSwzMTcuNTI0IDIyNC4wMTQsMzMxLjQ0NyAyOTMuMzQ0LDI2Mi4xMTUgMzYyLjY3MywzMzEuNDQ3IDM3Ni41OTYsMzE3LjUyNCAzMDcuMjY3LDI0OC4xOTIgICAiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K"></img></div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
